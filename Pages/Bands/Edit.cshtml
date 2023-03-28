@@ -1,0 +1,50 @@
+﻿@page
+@model ShowtimeManager.Pages.Bands.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Band</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Band.Id" />
+            <div class="form-group">
+                <label asp-for="Band.BandName" class="control-label"></label>
+                <input asp-for="Band.BandName" class="form-control" />
+                <span asp-validation-for="Band.BandName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Band.ShowTime" class="control-label"></label>
+                <input asp-for="Band.ShowTime" class="form-control" />
+                <span asp-validation-for="Band.ShowTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Band.Genre" class="control-label"></label>
+                <input asp-for="Band.Genre" class="form-control" />
+                <span asp-validation-for="Band.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Band.TicketPrice" class="control-label"></label>
+                <input asp-for="Band.TicketPrice" class="form-control" />
+                <span asp-validation-for="Band.TicketPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ShowtimeManager.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ShowtimeManagerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ShowtimeManagerContext") ?? throw new InvalidOperationException("Connection string 'ShowtimeManagerContext' not found.")));
 
 var app = builder.Build();
 
